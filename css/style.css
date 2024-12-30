@@ -769,7 +769,7 @@ a:hover {
     padding: 20px 30px; } */
 /* General Styles */
 .site-blocks-cover {
-  background-image: url('images/hero01.jpg');
+  background-image: url('images/bg_2.jpg');
   background-size: cover;
   /* Ensures the image covers the entire div */
   background-position: center center;
