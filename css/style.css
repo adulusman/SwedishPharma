@@ -769,43 +769,87 @@ a:hover {
     padding: 20px 30px; } */
 /* General Styles */
 .site-blocks-cover {
-  background-image: url('images/bg_2.jpg');
-  background-size: cover;
-  /* Ensures the image covers the entire div */
-  background-position: center center;
-  /* Centers the image */
+  background-image: url('/images/swedish pharma.jpg');
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
-  /* Prevents the image from tiling */
-  width: 100%;
-  /* Full width */
-  height: 100vh;
-  /* Full height of the viewport */
+  min-height: 700px;
+  position: relative;
   display: flex;
-  /* Optional: to align content within the div */
-  justify-content: center;
-  /* Optional: center content horizontally */
   align-items: center;
-  /* Optional: center content vertically */
+  justify-content: center;
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-  .site-blocks-cover {
-    height: 100%;
-    /* Adjust to content height for small screens */
-    background-size: 100vh;
-    /* Ensures the image still covers the area */
-    min-height: 350px;
-    /* Ensures it at least covers the viewport height */
-    margin-top: 0%;
+.site-blocks-cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
 
-  }
+.site-blocks-cover .container {
+  position: relative;
+  z-index: 2;
+}
+
+.cover-text {
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cover-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.cover-text p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.banner-wrap {
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.banner-wrap:hover {
+  transform: translateY(-5px);
+}
+
+.banner-wrap h5 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.banner-wrap p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.bg-primary {
+  background-color: #51eaea !important;
+}
+
+.bg-warning {
+  background-color: #ffd66b !important;
+}
+
+.section-overlap {
+  margin-top: -100px;
 }
 
 
 
-
-
+/* 
 .site-blocks-1 {
   border-bottom: 1px solid #edf0f5;
 }
@@ -848,7 +892,7 @@ a:hover {
 .site-blocks-2 .block-2-item {
   display: block;
   position: relative;
-}
+} */
 
 .site-blocks-2 .block-2-item:before {
   z-index: 1;
