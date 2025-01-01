@@ -713,186 +713,40 @@ a:hover {
   padding-left: 60px;
 }
 
-/* Blocks */
-/* .site-blocks-cover {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: relative; }
-  .site-blocks-cover, .site-blocks-cover > .container > .row {
-    min-height: 700px;
-    height: calc(100vh); }
-  .site-blocks-cover.inner-page, .site-blocks-cover.inner-page .row {
-    min-height: 400px;
-    height: 700px; }
-  .site-blocks-cover h2 {
-    font-size: 14px;
-    font-weight: normal;
-    color: #000;
-    letter-spacing: .2em;
-    text-transform: uppercase; }
-  @media (max-width: 991.98px) {
-    .site-blocks-cover .featured-hero-product {
-      margin-top: 10%;
-      position: absolute; } }
-  .site-blocks-cover h1 {
-    font-size: 50px;
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 30px;
-    text-transform: uppercase; }
-    @media (min-width: 768px) {
-      .site-blocks-cover h1 {
-        font-size: 70px; } }
-  .site-blocks-cover p {
-    color: #fff;
-    font-size: 20px;
-    line-height: 35px; }
-  .site-blocks-cover .intro-text {
-    font-size: 16px;
-    color: #fff;
-    line-height: 1.5; }
-  .site-blocks-cover.inner-page .site-block-cover-content {
-    margin-top: 20%;
-    text-align: center; }
-    @media (min-width: 768px) {
-      .site-blocks-cover.inner-page .site-block-cover-content {
-        margin-top: 30%; } }
-  .site-blocks-cover .sub-title {
-    color: #fff; }
-  @media (max-width: 991.98px) {
-    .site-blocks-cover .img-1 {
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto; } }
-  .site-blocks-cover .btn {
-    padding: 20px 30px; } */
-/* General Styles */
-.site-blocks-cover {
-  background-image: url('/images/swedish_pharma.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 700px;
+.full-width-container {
+  width: 100%;
+
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   position: relative;
+}
+
+.hero-image {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Optional overlay if you want to add text over the image */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.site-blocks-cover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.site-blocks-cover .container {
-  position: relative;
-  z-index: 2;
-}
-
-.cover-text {
+.overlay-content {
   color: white;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 20px;
 }
-
-.cover-text h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.cover-text p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.banner-wrap {
-  padding: 2.5rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.banner-wrap:hover {
-  transform: translateY(-5px);
-}
-
-.banner-wrap h5 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.banner-wrap p {
-  color: #666;
-  line-height: 1.6;
-}
-
-.bg-primary {
-  background-color: #51eaea !important;
-}
-
-.bg-warning {
-  background-color: #ffd66b !important;
-}
-
-.section-overlap {
-  margin-top: -100px;
-}
-
-
-
-/* 
-.site-blocks-1 {
-  border-bottom: 1px solid #edf0f5;
-}
-
-.site-blocks-1 .divider {
-  position: relative;
-}
-
-.site-blocks-1 .divider:after {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  right: 10px;
-  background: #edf0f5;
-}
-
-.site-blocks-1 .divider:last-child:after {
-  display: none;
-}
-
-.site-blocks-1 .icon span {
-  position: relative;
-  color: #6c757d;
-  top: -10px;
-  font-size: 50px;
-  display: inline-block;
-}
-
-.site-blocks-1 .text h2 {
-  color: #25262a;
-  letter-spacing: .05em;
-  font-size: 18px;
-}
-
-.site-blocks-1 .text p:last-child {
-  margin-bottom: 0;
-}
-
-.site-blocks-2 .block-2-item {
-  display: block;
-  position: relative;
-} */
 
 .site-blocks-2 .block-2-item:before {
   z-index: 1;
