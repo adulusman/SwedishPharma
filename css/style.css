@@ -723,12 +723,12 @@ a:hover {
 .hero-image {
   width: 100%;
   height: 100vh;
-  /* Use viewport height to make it responsive */
+  /* Full viewport height for consistency */
   object-fit: cover;
-  display: block;
+  /* Ensures the image covers the container without distortion */
 }
 
-.overlay {
+/* .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -744,23 +744,8 @@ a:hover {
   color: white;
   text-align: center;
   padding: 20px;
-}
+} */
 
-/* Media Query for smaller devices */
-@media (max-width: 768px) {
-  .hero-image {
-    height: auto;
-    /* Allow the image height to adjust dynamically */
-  }
-
-  .overlay-content {
-    padding: 10px;
-    /* Reduce padding for smaller screens */
-    font-size: 90%;
-    /* Adjust font size */
-  }
-}
-  
 .site-blocks-2 .block-2-item:before {
   z-index: 1;
   content: '';
