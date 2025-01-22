@@ -11,6 +11,29 @@ body {
   font-size: 16px;
 }
 
+/* store index start*/
+@media (max-width: 776px) {
+  .item img {
+    max-width: 50%; /* Reduce image size */
+    height: auto;
+  }
+
+  .item h3 {
+    font-size: 1rem; /* Smaller text for product titles */
+  }
+
+  .item p.price {
+    font-size: 0.9rem; /* Smaller text for prices */
+  }
+
+  .btn-primary {
+    padding: 10px 20px; /* Reduce button size */
+    font-size: 0.9rem;
+  }
+}
+
+/* end */
+
 ::-moz-selection {
   background: #000;
   color: #fff;
@@ -74,10 +97,19 @@ a:hover {
 
 @media screen and (max-width: 480px) {
   .navlogo {
-    width: 200px;
+    width: 150px;
     /* Adjust the width for very small screens */
   }
 }
+
+/* new product start */
+@media (max-width: 776px) {
+  .new{
+    position: relative;
+    left: 70px;
+  }
+}
+/* end */
 
 .offcanvas-menu .site-wrap {
   position: absolute;
@@ -253,7 +285,7 @@ a:hover {
 }
 
 .site-menu-toggle>span {
-  top: 5px;
+  top: 0px;
   position: relative;
 }
 
