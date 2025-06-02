@@ -2,258 +2,500 @@
 <html lang="en">
 
 <head>
-  <title>Pharma &mdash; Colorlib Template</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Swedish Pharma</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Import base styles from index.html */
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #06b6d4;
+      --success-color: #10b981;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --background-light: #f8fafc;
+      --white: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      --gradient-secondary: linear-gradient(135deg, #1e40af 0%, #10b981 100%);
+      --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <link rel="stylesheet" href="css/aos.css">
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
-  <link rel="stylesheet" href="css/style.css">
+    /* Navigation Styles - Same as index.html */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+      height: 80px;
+    }
 
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-color);
+      background: var(--background-light);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      color: var(--text-light);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Menu Styles - Same as index.html */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 5px;
+      z-index: 1002;
+      position: relative;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--text-dark);
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 991px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 90px 2rem 2rem;
+        gap: 1.5rem;
+        transition: all 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        overflow-y: auto;
+      }
+
+      .nav-links.active {
+        right: 0;
+        visibility: visible;
+      }
+
+      .nav-links li {
+        width: 100%;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.3s ease;
+      }
+
+      .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.75rem 1rem;
+        width: 100%;
+        text-align: left;
+        font-size: 1.1rem;
+        border-radius: 8px;
+      }
+
+      .social-icons {
+        display: none;
+      }
+
+      .menu-toggle.active span:first-child {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:last-child {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+    }
+
+    /* Contact Page Specific Styles */
+    .contact-section {
+      padding: 120px 0 60px;
+      background: var(--background-light);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-light);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      outline: none;
+    }
+
+    .contact-info {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-light);
+    }
+
+    .contact-info h3 {
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item i {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      margin-top: 0.25rem;
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-section {
+        padding: 100px 0 40px;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Backdrop */
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-backdrop.active {
+      display: block;
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo01.svg" alt="Swedish Pharma Logo">
+      </a>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="shop.html">Products</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-backdrop"></div>
 
-  <div class="site-wrap">
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Get in touch with us for any inquiries or support.</p>
 
-
-    <div class="site-navbar py-2">
-
-      <div class="search-wrap">
-        <div class="container">
-          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post">
-            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+      <div class="contact-grid">
+        <div class="contact-form">
+          <h3>Send us a Message</h3>
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <input type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea class="form-control" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send Message</button>
           </form>
         </div>
-      </div>
 
-      <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="logo">
-            <div class="site-logo">
-              <span><img class="navlogo" src="images/logo01.svg" alt=""></span>
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Address</h4>
+              <p>M G M JUNCTION, POOVAKUNNEL BUILDING, GROUND FLOOR 6/688 E, NH 220, PAMPADY INDUSTRIAL ESTATE, PIN
+                686502, KOTTAYAM, KERALA</p>
             </div>
           </div>
-          <div class="main-nav d-none d-lg-block">
-            <nav class="site-navigation text-right text-md-center" role="navigation">
-              <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li><a href="index.html">Home</a></li>
-
-
-                <li><a href="about.html">About</a></li>
-                <li><a href="shop.html">Store</a></li>
-                <li class="active"><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:+2392392921">+2 392 3929 210</a></p>
+            </div>
           </div>
-          <!-- Social Media Icons -->
-          <div class="icons">
-            <a href="#" class="text-primary mr-3"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="text-info mr-3"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="text-danger mr-3"><i class="fa fa-instagram"></i></a>
-            <a href="#" class="text-primary"><i class="fa fa-linkedin"></i></a>
-            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none">
-              <span class="icon-menu"></span>
-            </a>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:info@swedishpharma.com">info@swedishpharma.com</a></p>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- <div class="bg-light py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-0">
-            <a href="index.html">Home</a> <span class="mx-2 mb-0">/</span>
-            <strong class="text-black">Contact</strong>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="h3 mb-5 text-black">Get In Touch</h2>
-          </div>
-          <div class="col-md-12">
-
-            <form action="#" method="post">
-
-              <div class="p-3 p-lg-5 border">
-                <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_fname" name="c_fname">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_lname" name="c_lname">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-12">
-                    <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="c_email" name="c_email" placeholder="">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-12">
-                    <label for="c_subject" class="text-black">Subject </label>
-                    <input type="text" class="form-control" id="c_subject" name="c_subject">
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <div class="col-md-12">
-                    <label for="c_message" class="text-black">Message </label>
-                    <textarea name="c_message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-lg-12">
-                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
-    <!-- 
-
-    <div class="container">
-      <form method="post" action="" name="contact-form">
-        <h4>Contact Us</h4>
-        <input type="text" name="your-name" placeholder="Name">
-        <input type="text" name="your-number" placeholder="Number">
-        <input type="email" name="your-email" placeholder="Email">
-        <textarea name="message" rows="7" placeholder="Your Message">
-          </textarea>
-        <input type="submit" value="Submit" id="submit">
-      </form>
-    </div> -->
-
-
-
-
-    <div class="site-section bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h2 class="text-white mb-4">Our Office</h2>
-          </div>
-          <div class="col-lg-12">
-            <div class="p-4 bg-white mb-3 rounded">
-              <span class="d-block text-black h6 text-uppercase">Kerala Office</span>
-              <p class="mb-0">
-                M G M JUNCTION,<br>
-                POOVAKUNNEL BUILDING,<br>
-                GROUND FLOOR 6/688 E,<br>
-                NH 220, PAMPADY INDUSTRIAL ESTATE,<br>
-                PIN 686502,<br>
-                KOTTAYAM,<br>
-                KERALA
-              </p>
-              <div class="mt-3">
-                <strong>Phone:</strong> <a href="tel://+919876543210">+91 98765 43210</a><br>
-                <strong>Email:</strong> <a href="mailto:info@swedishpharma.com">info@swedishpharma.com</a>
-              </div>
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h4>Working Hours</h4>
+              <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                Saturday: 9:00 AM - 1:00 PM<br>
+                Sunday: Closed</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
+  <script>
+    // Mobile menu functionality - Same as index.html
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      const backdrop = document.querySelector('.nav-backdrop');
+      const menuItems = document.querySelectorAll('.nav-links li');
+      let isMenuOpen = false;
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+      function toggleMenu(open = null) {
+        isMenuOpen = open !== null ? open : !isMenuOpen;
 
-            <div class="block-7">
-              <h3 class="footer-heading mb-4">About Us</h3>
-              <p>Welcome to Swedish Pharma, a trusted name in veterinary medicine. Founded with a mission to advance
-                animal health, we specialize in providing premium-quality pharmaceutical solutions tailored for the
-                veterinary sector.</p>
-            </div>
+        menuToggle.classList.toggle('active', isMenuOpen);
+        navLinks.classList.toggle('active', isMenuOpen);
+        backdrop.classList.toggle('active', isMenuOpen);
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
 
-          </div>
-          <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
-            <h3 class="footer-heading mb-4">Quick Links</h3>
-            <ul class="list-unstyled">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="shop.html">Store</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
+        // Animate menu items
+        menuItems.forEach((item, index) => {
+          if (isMenuOpen) {
+            item.style.transitionDelay = `${0.1 * (index + 1)}s`;
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+          } else {
+            item.style.transitionDelay = '0s';
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(100px)';
+          }
+        });
 
-          <div class="col-md-6 col-lg-3">
-            <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
-              <ul class="list-unstyled">
-                <li class="address">M G M JUNCTION,
-                  POOVAKUNNEL BUILDING,
-                  GROUND FLOOR 6/688 E,
-                  NH 220, PAMPADY INDUSTRIAL ESTATE,
-                  PIN 686502,
-                  KOTTAYAM,
-                  KERALA</li>
-                <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-                <li class="email">emailaddress@domain.com</li>
-              </ul>
-            </div>
+        // Reset transition delays after animation
+        if (!isMenuOpen) {
+          setTimeout(() => {
+            menuItems.forEach(item => {
+              item.style.transitionDelay = '0s';
+            });
+          }, 300);
+        }
+      }
 
+      menuToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
 
-          </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;
-              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
-              with <i class="icon-heart" aria-hidden="true"></i> by <a
-                href="https://nexnova-technologies.web.app/#/home" target="_blank" class="text-primary">Nexnova
-                Technologis</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
+      backdrop.addEventListener('click', () => toggleMenu(false));
 
-        </div>
-      </div>
-    </footer>
-  </div>
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+      });
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <!-- <script src="js/google sheets.js"></script> -->
+      document.addEventListener('click', function (e) {
+        if (isMenuOpen && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+          toggleMenu(false);
+        }
+      });
 
-  <script src="js/main.js"></script>
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && isMenuOpen) {
+          toggleMenu(false);
+        }
+      });
 
+      navLinks.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+    });
+  </script>
 </body>
 
 </html>

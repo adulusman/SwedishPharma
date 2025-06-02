@@ -4,8 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swedish Pharma - Advanced Veterinary Medicine</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- SEO Meta Tags -->
+  <title>Swedish Pharma - Advanced Veterinary Medicine & Animal Healthcare Products</title>
+  <meta name="description"
+    content="Swedish Pharma offers premium veterinary medicines and animal healthcare products. Trusted by veterinarians worldwide for quality pharmaceutical solutions.">
+  <meta name="keywords"
+    content="veterinary medicine, animal healthcare, pharmaceutical products, pet medicine, livestock medicine, Swedish Pharma">
+
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:title" content="Swedish Pharma - Advanced Veterinary Medicine">
+  <meta property="og:description"
+    content="Premium quality veterinary medicines and animal healthcare products. Trusted by veterinarians worldwide.">
+  <meta property="og:image" content="images/logo01.svg">
+  <meta property="og:url" content="https://swedishpharma.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Swedish Pharma - Advanced Veterinary Medicine">
+  <meta name="twitter:description" content="Premium quality veterinary medicines and animal healthcare products.">
+  <meta name="twitter:image" content="images/logo01.svg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://swedishpharma.com">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/logo01.svg">
+  <link rel="apple-touch-icon" href="images/logo01.svg">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
   <style>
     * {
       margin: 0;
@@ -40,21 +71,23 @@
     .navbar {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       z-index: 1000;
-      transition: all 0.3s ease;
+      height: 80px;
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 100%;
     }
 
     .logo {
@@ -66,10 +99,17 @@
       background-clip: text;
     }
 
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
     .nav-links {
       display: flex;
       list-style: none;
       gap: 2rem;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-links a {
@@ -124,15 +164,17 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Banner Section */
+    /* Hero Section Styles */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       position: relative;
-      overflow: hidden;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, rgba(37, 100, 235, 0.484), rgba(6, 181, 212, 0.555)),
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(6, 182, 212, 0.90)),
         url('images/swedish_pharma_tablet.jpg') center/cover;
+      overflow: hidden;
+      padding-top: 80px;
+      margin-top: 0;
     }
 
     .hero::before {
@@ -142,63 +184,56 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-      opacity: 0.6;
-    }
-
-    .hero-banner-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(6, 182, 212, 0.7)),
-        url('images/swedish_pharma_mobile.jpg');
-      z-index: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.2)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+      opacity: 0.3;
     }
 
     .hero-container {
-      max-width: 1200px;
+      max-width: 1400px;
+      width: 100%;
       margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: center;
-      min-height: 100vh;
       position: relative;
       z-index: 2;
     }
 
     .hero-content {
-      flex: 1;
-      max-width: 600px;
+      color: white;
     }
 
     .hero-content h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 800;
-      color: white;
-      margin-bottom: 1.5rem;
       line-height: 1.1;
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #ffffff, #e2e8f0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 1s ease-out;
     }
 
     .hero-content p {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: rgba(255, 255, 255, 0.95);
-      margin-bottom: 2.5rem;
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
       line-height: 1.6;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
     }
 
     .hero-buttons {
       display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.4s backwards;
     }
 
     .btn {
       padding: 1rem 2rem;
-      border: none;
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
@@ -208,17 +243,20 @@
       transition: all 0.3s ease;
       cursor: pointer;
       font-size: 1rem;
+      text-align: center;
+      justify-content: center;
     }
 
     .btn-primary {
       background: white;
       color: var(--primary-color);
-      box-shadow: var(--shadow-medium);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow-large);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      background: #f8fafc;
     }
 
     .btn-secondary {
@@ -234,55 +272,179 @@
     }
 
     .hero-visual {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       position: relative;
+      animation: fadeInRight 1s ease-out 0.6s backwards;
     }
 
     .hero-card {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 3rem 2rem;
       text-align: center;
       color: white;
-      animation: float 6s ease-in-out infinite;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      max-width: 300px;
-      width: 100%;
+      animation: float 6s ease-in-out infinite;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
     }
 
     .hero-card i {
       font-size: 4rem;
       margin-bottom: 1.5rem;
-      color: var(--accent-color);
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, #ffffff, #e2e8f0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero-card h3 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       margin-bottom: 1rem;
       font-weight: 700;
     }
 
     .hero-card p {
-      font-size: 1rem;
+      font-size: 1.1rem;
       opacity: 0.9;
       line-height: 1.5;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     @keyframes float {
 
       0%,
       100% {
-        transform: translateY(0px);
+        transform: translateY(0) rotateX(0);
       }
 
       50% {
-        transform: translateY(-20px);
+        transform: translateY(-20px) rotateX(5deg);
+      }
+    }
+
+    /* Mobile Responsive Hero */
+    @media (max-width: 991px) {
+      .hero {
+        padding-top: 100px;
+        min-height: calc(100vh - 60px);
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+
+      .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        order: 2;
+      }
+
+      .hero-card {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+      }
+
+      .logo img {
+        height: 35px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 80px;
+      }
+
+      .hero-container {
+        padding: 1.5rem;
+        gap: 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+      }
+
+      .hero-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero-card i {
+        font-size: 3rem;
+      }
+
+      .hero-card h3 {
+        font-size: 1.5rem;
+      }
+
+      .hero-card p {
+        font-size: 1rem;
+      }
+
+      .logo img {
+        height: 30px;
       }
     }
 
@@ -597,6 +759,150 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 5px;
+      z-index: 1002;
+      position: relative;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--text-dark);
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 991px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: flex !important;
+        /* Force display */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 90px 2rem 2rem;
+        gap: 1.5rem;
+        transition: all 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        overflow-y: auto;
+      }
+
+      .nav-links.active {
+        right: 0;
+        visibility: visible;
+      }
+
+      .nav-links li {
+        width: 100%;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.3s ease;
+      }
+
+      .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nav-links li:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+
+      .nav-links li:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+
+      .nav-links li:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+
+      .nav-links li:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+
+      .nav-links li:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.75rem 1rem;
+        width: 100%;
+        text-align: left;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        color: var(--text-dark);
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--background-light);
+        color: var(--primary-color);
+        transform: translateX(8px);
+      }
+
+      .menu-toggle.active span:first-child {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:last-child {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      .social-icons {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        width: 100%;
+        max-width: none;
+        padding: 80px 1.5rem 2rem;
+      }
+    }
+
+    /* Add backdrop overlay */
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-backdrop.active {
+      display: block;
+      opacity: 1;
+    }
   </style>
 </head>
 
@@ -604,7 +910,12 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="index.html" class="logo"><img src="images/logo01.svg" alt=""></a>
+      <a href="index.html" class="logo"><img src="images/logo01.svg" alt="Swedish Pharma Logo"></a>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About Us</a></li>
@@ -620,16 +931,7 @@
       </div>
     </div>
   </nav>
-  <!-- <div class="full-width-container"> -->
-  <!-- <picture> -->
-  <!-- Image for mobile devices -->
-  <!-- <source srcset="images/swedish_pharma_mobile.jpg" media="(max-width: 768px)"> -->
-  <!-- Image for tablets -->
-  <!-- <source srcset="images/swedish_pharma_tablet.jpg" media="(max-width: 1200px)"> -->
-  <!-- Default image for desktop -->
-  <!-- <img src="images/swedish_pharma_mobile.jpg" media="(max-width: 1200px)" alt="Hero Image" class="hero-image"> -->
-  <!-- </picture> -->
-  <!-- </div> -->
+  <div class="nav-backdrop"></div>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
@@ -647,7 +949,7 @@
           </a>
         </div>
       </div>
-      <div class="hero-image">
+      <div class="hero-visual">
         <div class="hero-card">
           <i class="fas fa-stethoscope"></i>
           <h3>Veterinary Excellence</h3>
@@ -992,6 +1294,81 @@
       }
     `;
     document.head.appendChild(style);
+
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      const backdrop = document.querySelector('.nav-backdrop');
+      const menuItems = document.querySelectorAll('.nav-links li');
+      let isMenuOpen = false;
+
+      function toggleMenu(open = null) {
+        isMenuOpen = open !== null ? open : !isMenuOpen;
+
+        menuToggle.classList.toggle('active', isMenuOpen);
+        navLinks.classList.toggle('active', isMenuOpen);
+        backdrop.classList.toggle('active', isMenuOpen);
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+
+        // Animate menu items
+        menuItems.forEach((item, index) => {
+          if (isMenuOpen) {
+            item.style.transitionDelay = `${0.1 * (index + 1)}s`;
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+          } else {
+            item.style.transitionDelay = '0s';
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(100px)';
+          }
+        });
+
+        // Reset transition delays after animation
+        if (!isMenuOpen) {
+          setTimeout(() => {
+            menuItems.forEach(item => {
+              item.style.transitionDelay = '0s';
+            });
+          }, 300);
+        }
+      }
+
+      // Toggle menu on button click
+      menuToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      // Close menu when clicking on backdrop
+      backdrop.addEventListener('click', () => toggleMenu(false));
+
+      // Close menu when clicking on links
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function (e) {
+        if (isMenuOpen && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+          toggleMenu(false);
+        }
+      });
+
+      // Close menu on escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && isMenuOpen) {
+          toggleMenu(false);
+        }
+      });
+
+      // Prevent clicks inside menu from closing it
+      navLinks.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+    });
+
+    // ... rest of your existing scripts ...
   </script>
 </body>
 

@@ -8,69 +8,368 @@
 
   <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
   <link rel="stylesheet" href="css/aos.css">
 
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #06b6d4;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --background-light: #f8fafc;
+      --white: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+    }
 
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 5px;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--text-dark);
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-color);
+      background: var(--background-light);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 80%;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      color: var(--text-light);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 991px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-container {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 80px 2rem 2rem;
+        gap: 1.5rem;
+        transition: 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .social-icons {
+        display: none;
+      }
+
+      .menu-toggle.active span:first-child {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:last-child {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        width: 100%;
+        max-width: none;
+      }
+
+      .logo img {
+        height: 30px;
+      }
+    }
+
+    /* About Page Responsive Styles */
+    .site-section {
+      padding: 40px 0;
+      margin-top: 60px;
+    }
+
+    .bg-light {
+      background-color: var(--background-light);
+    }
+
+    .custom-border-bottom {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .block-16 {
+      position: relative;
+      width: 100%;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .block-16 video {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+
+    .site-section-heading {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .text-black {
+      color: var(--text-dark);
+    }
+
+    /* Features Section */
+    .site-blocks-1 {
+      padding: 3rem 0;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--background-light);
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+
+    .icon img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991px) {
+      .site-section {
+        padding: 30px 0;
+        margin-top: 40px;
+      }
+
+      .block-16 {
+        margin-bottom: 2rem;
+      }
+
+      .site-section-heading {
+        font-size: 1.75rem;
+      }
+
+      .order-md-2 {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .site-section-heading {
+        font-size: 1.5rem;
+      }
+
+      .text-black {
+        font-size: 0.9rem;
+      }
+
+      .site-blocks-1 {
+        padding: 2rem 0;
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .icon img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 0.5rem;
+      }
+
+      .site-section {
+        padding: 20px 0;
+      }
+
+      .site-section-heading {
+        font-size: 1.25rem;
+      }
+
+      .block-16 {
+        margin: 0 -0.5rem 1.5rem;
+        border-radius: 0;
+      }
+
+      .block-16 video {
+        border-radius: 0;
+      }
+
+      .site-blocks-1 {
+        padding: 1.5rem 0;
+      }
+
+      .icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 0.75rem;
+      }
+
+      .icon img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
 
 </head>
 
 <body>
 
   <div class="site-wrap">
-
-
-
-    <div class="site-navbar py-2">
-      <!-- 
-      <div class="search-wrap">
-        <div class="container">
-          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post">
-            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
-          </form>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo"><img src="images/logo01.svg" alt="Swedish Pharma Logo"></a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </div> -->
-
-      <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="logo">
-            <div class="site-logo">
-              <span><img class="navlogo" src="images/logo01.svg" alt="Swedish Pharma Logo"></span>
-            </div>
-          </div>
-          <div class="main-nav d-none d-lg-block">
-            <nav class="site-navigation text-right text-md-center" role="navigation">
-              <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="about.html">About</a></li>
-                <li><a href="shop.html">Store</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="icons">
-            <a href="#" class="text-primary mr-3"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="text-info mr-3"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="text-danger mr-3"><i class="fa fa-instagram"></i></a>
-            <a href="#" class="text-primary"><i class="fa fa-linkedin"></i></a>
-            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none">
-              <span class="icon-menu"></span>
-            </a>
-          </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="shop.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
-    </div>
+    </nav>
 
     <br>
     <br>
@@ -339,6 +638,27 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      menuToggle.addEventListener('click', function () {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 
